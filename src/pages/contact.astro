@@ -78,84 +78,77 @@ const structuredData = {
           <h2
             class="card-title text-2xl md:text-3xl font-bold text-center justify-center mb-8 gap-2"
           >
-            <MessageCircle class="w-8 h-8 mr-1 text-primary" />
-            Envíanos un <span class="text-primary">Mensaje</span> por WhatsApp
+            Envíanos un <span class="text-primary">Mensaje</span>
           </h2>
           <form
             id="contact-form"
-            class="grid grid-cols-1 md:grid-cols-2 gap-8"
+            class="grid grid-cols-1 gap-8"
             autocomplete="off"
           >
-            <div class="space-y-6">
-              <div class="form-control w-full">
-                <label class="label">
-                  <span
-                    class="label-text text-base font-semibold text-base-content"
-                    >Nombre Completo</span
-                  >
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Tu nombre completo"
-                  class="input input-lg input-primary input-bordered w-full bg-base-200/60 focus:bg-base-100"
-                  required
-                />
-              </div>
-              <div class="form-control w-full">
-                <label class="label">
-                  <span
-                    class="label-text text-base font-semibold text-base-content"
-                    >Correo Electrónico</span
-                  >
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="tu@email.com"
-                  class="input input-lg input-primary input-bordered w-full bg-base-200/60 focus:bg-base-100"
-                  required
-                />
-              </div>
-              <div class="form-control w-full">
-                <label class="label">
-                  <span
-                    class="label-text text-base font-semibold text-base-content"
-                    >Número de Teléfono</span
-                  >
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+51 999 999 999"
-                  class="input input-lg input-primary input-bordered w-full"
-                  required
-                />
-              </div>
-            </div>
-            <div class="flex flex-col h-full">
-              <div class="form-control flex-1">
-                <label class="label">
-                  <span
-                    class="label-text text-base font-semibold text-base-content"
-                    >Mensaje</span
-                  >
-                </label>
-                <textarea
-                  name="message"
-                  placeholder="Cuéntanos sobre tu proyecto o consulta..."
-                  class="textarea textarea-lg textarea-primary textarea-bordered h-40 min-h-[8rem] w-full bg-base-200/60 focus:bg-base-100 resize-none"
-                  required></textarea>
-              </div>
-              <div class="form-control mt-8 flex justify-center">
-                <button
-                  type="submit"
-                  class="btn btn-primary btn-lg rounded-full px-8 font-bold gap-2 shadow-md hover:scale-105 transition-transform duration-200"
+            <div class="form-control w-full">
+              <label class="label">
+                <span
+                  class="label-text text-base font-semibold text-base-content"
+                  >Nombre Completo</span
                 >
-                  <MessageCircle class="w-5 h-5" />
-                  Enviar por WhatsApp
-                </button>
-              </div>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Tu nombre completo"
+                class="input input-lg input-primary input-bordered rounded-xl w-full bg-base-200/60 focus:bg-base-100"
+                required
+              />
+            </div>
+            <div class="form-control w-full">
+              <label class="label">
+                <span
+                  class="label-text text-base font-semibold text-base-content"
+                  >Correo Electrónico</span
+                >
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="tu@email.com"
+                class="input input-lg input-primary input-bordered rounded-xl w-full bg-base-200/60 focus:bg-base-100"
+                required
+              />
+            </div>
+            <div class="form-control w-full">
+              <label class="label">
+                <span
+                  class="label-text text-base font-semibold text-base-content"
+                  >Número de Teléfono</span
+                >
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+51 999 999 999"
+                class="input input-lg input-primary input-bordered rounded-xl w-full"
+                required
+              />
+            </div>
+
+            <div class="form-control flex-1">
+              <label class="label">
+                <span
+                  class="label-text text-base font-semibold text-base-content"
+                  >Mensaje</span
+                >
+              </label>
+              <textarea
+                name="message"
+                placeholder="Cuéntanos sobre tu proyecto o consulta..."
+                class="textarea textarea-lg textarea-primary textarea-bordered rounded-xl h-40 min-h-[8rem] w-full bg-base-200/60 focus:bg-base-100 resize-none"
+                required></textarea>
+            </div>
+
+            <div class="form-control mt-8 flex justify-center">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Enviar Mensaje
+              </button>
             </div>
           </form>
         </div>
