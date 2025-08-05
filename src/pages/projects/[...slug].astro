@@ -1,0 +1,170 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Page from "@/layouts/Page.astro";
+import { Image } from "astro:assets";
+import {
+  ExternalLink,
+  Github,
+  Calendar,
+  User,
+  Clock,
+  CheckCircle,
+  ArrowLeft,
+} from "@lucide/astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: project,
+  }));
+}
+
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+const { Content } = await render(project);
+---
+
+<Page title={project.data.title} description={project.data.description}>
+  <article class="max-w-4xl mx-auto py-12 px-4">
+    <!-- Back Button -->
+    <a href="/projects" class="btn btn-ghost gap-2 mb-8">
+      <ArrowLeft class="w-5 h-5" />
+      Volver a Proyectos
+    </a>
+
+    <!-- Project Header -->
+    <header class="mb-12 animate-fade-in">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="badge badge-primary">{project.data.category}</span>
+        <span class="text-base-content/60">•</span>
+        <span class="text-base-content/60">{project.data.client}</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">{project.data.title}</h1>
+
+      <p class="text-xl text-base-content/70 mb-8 leading-relaxed">
+        {project.data.fullDescription}
+      </p>
+
+      <!-- Project Meta -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="flex items-center gap-3">
+          <Calendar class="w-5 h-5 text-primary" />
+          <div>
+            <p class="font-semibold">Fecha</p>
+            <p class="text-base-content/70">
+              {new Date(project.data.pubDate).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <User class="w-5 h-5 text-primary" />
+          <div>
+            <p class="font-semibold">Cliente</p>
+            <p class="text-base-content/70">{project.data.client}</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <Clock class="w-5 h-5 text-primary" />
+          <div>
+            <p class="font-semibold">Duración</p>
+            <p class="text-base-content/70">{project.data.duration}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap gap-4 mb-8">
+        {
+          project.data.liveDemo && (
+            <a
+              href={project.data.liveDemo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary gap-2"
+            >
+              <ExternalLink class="w-4 h-4" />
+              Ver Demo
+            </a>
+          )
+        }
+
+        {
+          project.data.github && (
+            <a
+              href={project.data.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline gap-2"
+            >
+              <Github class="w-4 h-4" />
+              Ver Código
+            </a>
+          )
+        }
+      </div>
+    </header>
+
+    <!-- Project Image -->
+    {
+      project.data.image && (
+        <figure class="mb-12 animate-slide-up">
+          <Image
+            src={project.data.image}
+            alt={project.data.title}
+            width={800}
+            height={500}
+            class="rounded-2xl shadow-2xl w-full object-cover"
+            loading="eager"
+          />
+        </figure>
+      )
+    }
+
+    <!-- Project Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+        <div
+          class="prose prose-lg prose-slate max-w-none prose-headings:text-base-content prose-p:text-base-content/80 prose-strong:text-base-content prose-a:text-primary hover:prose-a:text-primary/80 prose-code:text-primary prose-pre:bg-base-200 prose-blockquote:border-primary prose-blockquote:text-base-content/70"
+        >
+          <Content />
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="space-y-8">
+        <!-- Technologies -->
+        <div class="card bg-base-200 p-6">
+          <h3 class="text-xl font-bold mb-4">Tecnologías</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              project.data.technologies.map((tech) => (
+                <span class="badge badge-outline">{tech}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="card bg-base-200 p-6">
+          <h3 class="text-xl font-bold mb-4">Características</h3>
+          <ul class="space-y-3">
+            {
+              project.data.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <CheckCircle class="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
+                  <span class="text-sm">{feature}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Page>

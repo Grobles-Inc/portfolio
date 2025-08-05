@@ -1,0 +1,53 @@
+---
+import Page from "@/layouts/Page.astro";
+import Categories from "@/components/Categories.astro";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Portfolio de Proyectos - Grobles Solutions",
+  description:
+    "Proyectos de desarrollo de software completados por Grobles Solutions",
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: "15",
+    itemListElement: [
+      {
+        "@type": "SoftwareApplication",
+        name: "Aplicaciones Web",
+        applicationCategory: "WebApplication",
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Aplicaciones Móviles",
+        applicationCategory: "MobileApplication",
+      },
+    ],
+  },
+};
+---
+
+<Page
+  title="Portfolio de Proyectos - Grobles Solutions | 15+ Proyectos Completados"
+  description="Explora nuestro portfolio de proyectos de desarrollo de software. 15+ proyectos completados en aplicaciones web, móviles y soluciones personalizadas."
+  keywords="portfolio, proyectos software, aplicaciones web, desarrollo móvil, casos de éxito, React, TypeScript"
+  structuredData={structuredData}
+>
+  <section class="max-w-7xl mx-auto py-12">
+    <div
+      class="flex flex-col items-center text-center space-y-4"
+      data-aos="fade-up"
+    >
+      <span class="text-primary font-semibold">Proyectos</span>
+      <h1 class="text-2xl max-w-xl md:text-3xl lg:text-4xl font-bold">
+        Nuestra Experiencia
+      </h1>
+      <p class="max-w-2xl text-lg px-4">
+        Explora nuestros proyectos agrupados por categorías.
+      </p>
+    </div>
+    <div class="p-4 md:p-8 mt-16" data-aos="fade-up">
+      <Categories />
+    </div>
+  </section>
+</Page>

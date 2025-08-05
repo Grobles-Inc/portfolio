@@ -8,12 +8,13 @@ const currentLocale = Astro.currentLocale || "en";
     class="flex flex-col items-center text-center space-y-6 py-12 animate-fade-in"
   >
     <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold">
+      {currentLocale === "es" ? "Somos " : "We are "}
+      <span class="italic text-primary">{SITE_TITLE}</span>
       {
         currentLocale === "es"
-          ? "Somos Grobles Startup Líder en"
-          : "We are Grobles Startup Leader in"
+          ? ", startup líder en desarrollo de software"
+          : ", startup leader in software development"
       }
-      <span class="italic">Desarrollo de Software</span>
     </h1>
     <p class="max-w-2xl text-lg">
       {

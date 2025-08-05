@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content";
+import Page from "@/layouts/Page.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import ProjectFilter from "@/components/ProjectFilter.astro";
+
+// Get all projects from the content collection
+const projects = await getCollection("projects");
+
+function slugify(text: string) {
+	return text
+		.toString()
+		.toLowerCase()
+		.replace(/\s+/g, "-")
+		.replace(/[^\w-]+/g, "")
+		.replace(/--+/g, "-")
+		.replace(/^-+/, "")
+		.replace(/-+$/, "");
+}
+---
+
+<Page title="Projects" description="Explore our projects and success cases">
+	<section class="max-w-7xl mx-auto py-12 px-4">
+		<div class="text-center mb-12 animate-fade-in">
+			<span class="font-semibold text-primary"> Our Projects </span>
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
+				Projects that Transform Ideas into Reality
+			</h1>
+			<p class="max-w-2xl mx-auto text-lg text-base-content/70">
+				Discover how we've helped our clients achieve their goals through
+				innovative technological solutions.
+			</p>
+		</div>
+
+		<!-- Filter Buttons -->
+		<ProjectFilter />
+
+		<!-- Projects Grid -->
+		<div
+			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up"
+		>
+			{
+				projects.map((project) => (
+					<div
+						class="project-card"
+						data-category={slugify(project.data.category)}
+					>
+						<ProjectCard
+							id={project.data.id}
+							title={project.data.title}
+							description={project.data.description}
+							image={project.data.image}
+							technologies={project.data.technologies}
+							liveDemo={project.data.liveDemo}
+							github={project.data.github}
+							category={project.data.category}
+							featuresLength={project.data.features.length}
+							slug={project.data.slug}
+						/>
+					</div>
+				))
+			}
+		</div>
+
+		{
+			projects.length === 0 && (
+				<div class="text-center py-12">
+					<p class="text-xl text-base-content/60">No projects available yet.</p>
+				</div>
+			)
+		}
+	</section>
+</Page>

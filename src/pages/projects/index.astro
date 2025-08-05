@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import Page from "@/layouts/Page.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import ProjectFilter from "@/components/ProjectFilter.astro";
+
+// Get all projects from the content collection
+const projects = await getCollection("projects");
+
+function slugify(text: string) {
+	return text
+		.toString()
+		.toLowerCase()
+		.replace(/\s+/g, "-")
+		.replace(/[^\w-]+/g, "")
+		.replace(/--+/g, "-")
+		.replace(/^-+/, "")
+		.replace(/-+$/, "");
+}
+---
+
+<Page
+	title="Proyectos"
+	description="Explora nuestros proyectos y casos de éxito"
+>
+	<section class="max-w-7xl mx-auto py-12 px-4">
+		<div class="text-center mb-12 animate-fade-in">
+			<span class="font-semibold text-primary"> Nuestros Trabajos </span>
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
+				Proyectos que Transforman Ideas en Realidad
+			</h1>
+			<p class="max-w-2xl mx-auto text-lg text-base-content/70">
+				Descubre cómo hemos ayudado a nuestros clientes a alcanzar sus objetivos
+				a través de soluciones tecnológicas innovadoras.
+			</p>
+		</div>
+
+		<!-- Filter Buttons -->
+		<ProjectFilter />
+
+		<!-- Projects Grid -->
+		<div
+			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up"
+		>
+			{
+				projects.map((project) => (
+					<div
+						class="project-card"
+						data-category={slugify(project.data.category)}
+					>
+						<ProjectCard
+							id={project.data.id}
+							title={project.data.title}
+							description={project.data.description}
+							image={project.data.image}
+							technologies={project.data.technologies}
+							liveDemo={project.data.liveDemo}
+							github={project.data.github}
+							category={project.data.category}
+							featuresLength={project.data.features.length}
+							slug={project.data.slug}
+						/>
+					</div>
+				))
+			}
+		</div>
+
+		{
+			projects.length === 0 && (
+				<div class="text-center py-12">
+					<p class="text-xl text-base-content/60">
+						No hay proyectos disponibles aún.
+					</p>
+				</div>
+			)
+		}
+	</section>
+</Page>

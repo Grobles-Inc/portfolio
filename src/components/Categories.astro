@@ -1,0 +1,76 @@
+---
+import {
+  ArrowRight,
+  FileText,
+  Laptop,
+  ShoppingCart,
+  Smartphone,
+} from "@lucide/astro";
+const currentLocale = Astro.currentLocale || "es";
+
+const categories = [
+  {
+    name: currentLocale === "es" ? "Aplicaciones Móviles" : "Mobile Apps",
+    slug: "aplicacion-movil",
+    icon: Smartphone,
+    iconColor: "text-success",
+    description:
+      currentLocale === "es"
+        ? "Aplicaciones móviles, incluyendo apps nativas para iOS y Android, aplicaciones híbridas con React Native, y PWAs (Progressive Web Apps)."
+        : "Mobile apps, including native apps for iOS and Android, hybrid apps with React Native, and PWAs (Progressive Web Apps).",
+  },
+  {
+    name: currentLocale === "es" ? "Sistemas Web" : "Web Systems",
+    slug: "sistema-web",
+    icon: Laptop,
+    iconColor: "text-error",
+    description:
+      currentLocale === "es"
+        ? "Sistemas de gestión empresarial, plataformas de administración de contenido, dashboards analíticos, etc."
+        : "Business management systems, content management platforms, analytical dashboards, etc.",
+  },
+  {
+    name: currentLocale === "es" ? "Tiendas Online" : "E-commerce",
+    slug: "ecommerce",
+    icon: ShoppingCart,
+    iconColor: "text-info",
+    description:
+      currentLocale === "es"
+        ? "Plataformas de comercio electrónico efectivas y completas que abarcan desde tiendas online básicas hasta marketplaces complejos."
+        : "Effective and complete e-commerce platforms that range from basic online stores to complex marketplaces.",
+  },
+  {
+    name: currentLocale === "es" ? "Landing Pages" : "Landing Pages",
+    slug: "landing-page",
+    icon: FileText,
+    iconColor: "text-secondary",
+    description:
+      currentLocale === "es"
+        ? "Páginas de aterrizaje estratégicamente diseñadas para campañas de marketing, lanzamientos de productos, y conversión de leads. "
+        : "Landing pages strategically designed for marketing campaigns, product launches, and lead conversion.",
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  {
+    categories.map(({ name, slug, icon: Icon, iconColor, description }) => (
+      <div class="card bg-base-200 border-2 border-secondary rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-200 p-4">
+        <div class="card-body items-center text-center">
+          <div class={`mb-4 rounded-full p-3 bg-base-100 ${iconColor}`}>
+            <Icon class="w-8 h-8" />
+          </div>
+          <h3 class="card-title text-lg font-bold">{name}</h3>
+          <p class="text-base-content/70">{description}</p>
+        </div>
+        <button
+          class="btn w-full btn-secondary"
+          onclick={`window.location.href = '/${currentLocale}/projects/${slug}'`}
+        >
+          {currentLocale === "es" ? "Ver Proyectos" : "View Projects"}
+          <ArrowRight class="w-4 h-4" />
+        </button>
+      </div>
+    ))
+  }
+</div>

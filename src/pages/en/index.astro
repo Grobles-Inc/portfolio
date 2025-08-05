@@ -3,9 +3,27 @@ import Page from "@/layouts/Page.astro";
 import Hero from "@/components/Hero.astro";
 import Services from "@/components/Services.astro";
 import Projects from "@/components/Projects.astro";
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "Grobles Solutions",
+	description: "Startup leader in software development",
+	url: "https://grobles.vercel.app",
+	logo: "https://grobles.vercel.app/src/assets/logoGrobles.png",
+	sameAs: [
+		"https://linkedin.com/company/grobles",
+		"https://twitter.com/grobles",
+	],
+};
 ---
 
-<Page title="Home" description="Home page">
+<Page
+	title="Home - Grobles Solutions"
+	description="Grobles - Startup Leader in Software Development. We transform your ideas into innovative digital solutions that drive the growth of our clients."
+	keywords="software development, startup, technology, web applications, grobles, digital solutions, programming"
+	structuredData={structuredData}
+>
 	<Hero />
 	<Services />
 	<Projects />

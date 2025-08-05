@@ -1,0 +1,98 @@
+---
+import {
+  FileText,
+  Laptop,
+  ShoppingCart,
+  Smartphone,
+  Grid3X3,
+} from "@lucide/astro";
+
+const currentLocale = Astro.currentLocale || "es";
+
+const categories = [
+  {
+    name: currentLocale === "es" ? "Todos" : "All",
+    slug: "all",
+  },
+  {
+    name: currentLocale === "es" ? "Aplicación Móvil" : "Mobile App",
+    slug: "aplicacion-movil",
+  },
+  {
+    name: currentLocale === "es" ? "Sistema Web" : "Web System",
+    slug: "sistema-web",
+  },
+  {
+    name: currentLocale === "es" ? "E-commerce" : "E-commerce",
+    slug: "ecommerce",
+  },
+  {
+    name: currentLocale === "es" ? "Landing Page" : "Landing Page",
+    slug: "landing-page",
+  },
+];
+---
+
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+  {
+    categories.map(({ name, slug }) => (
+      <button
+        class="btn btn-outline filter-btn btn-sm lg:btn-md"
+        data-category={slug}
+        data-active={slug === "all" ? "true" : "false"}
+      >
+        {name}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(
+      ".filter-btn",
+    ) as NodeListOf<HTMLButtonElement>;
+    const projectCards = document.querySelectorAll(
+      ".project-card",
+    ) as NodeListOf<HTMLElement>;
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", function (this: HTMLButtonElement) {
+        const category = this.getAttribute("data-category");
+
+        // Update active button
+        filterButtons.forEach((btn) => {
+          btn.classList.remove("btn-primary");
+          btn.classList.add("btn-outline");
+          btn.setAttribute("data-active", "false");
+        });
+
+        this.classList.remove("btn-outline");
+        this.classList.add("btn-primary");
+        this.setAttribute("data-active", "true");
+
+        // Filter projects
+        projectCards.forEach((card) => {
+          const cardCategory = card.getAttribute("data-category");
+
+          if (category === "all" || cardCategory === category) {
+            (card as HTMLElement).style.display = "block";
+            card.classList.add("animate-fade-in");
+          } else {
+            (card as HTMLElement).style.display = "none";
+            card.classList.remove("animate-fade-in");
+          }
+        });
+      });
+    });
+
+    // Set initial active state
+    const allButton = document.querySelector(
+      '[data-category="all"]',
+    ) as HTMLButtonElement;
+    if (allButton) {
+      allButton.classList.remove("btn-outline");
+      allButton.classList.add("btn-primary");
+    }
+  });
+</script>
