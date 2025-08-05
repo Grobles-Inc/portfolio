@@ -1,0 +1,193 @@
+---
+import { Mail, MapPin, Phone, MessageCircle } from "@lucide/astro";
+import Page from "@/layouts/Page.astro";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Grobles Solutions",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+51-937-760-953",
+      contactType: "customer service",
+      availableLanguage: ["Spanish", "English"],
+      areaServed: "Worldwide",
+    },
+  },
+};
+---
+
+<Page
+  title="Contacto - Grobles Solutions | Hablemos de tu Proyecto"
+  description="¿Tienes una idea? Contacta con Grobles Solutions. Soporte 24/7, consulta gratuita y presupuesto personalizado para tu proyecto de software."
+  structuredData={structuredData}
+>
+  <section class="max-w-7xl mx-auto">
+    <div
+      class="flex flex-col items-center text-center space-y-6 py-12 lg:mt-20 animate-fade-in"
+    >
+      <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold">
+        Conecta Con <span class="italic">Nosotros</span>
+      </h1>
+      <p class="max-w-2xl text-lg">
+        Tenemos un fuerte deseo de colaborar y damos la bienvenida a marcas
+        estimadas y emprendedores entusiastas para que se unan a nosotros.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 mb-20 mt-20">
+      <div
+        class="card bg-base-100 shadow-xl rounded-3xl animate-zoom-in"
+        style="animation-delay:100ms"
+      >
+        <div class="card-body items-center text-center">
+          <Mail class="w-12 h-12 mb-4" />
+          <h2 class="card-title text-xl font-bold">Nuestro Email</h2>
+          <p class="text-base-content/80">grobles.dev@gmail.com</p>
+        </div>
+      </div>
+      <div
+        class="card bg-base-100 shadow-xl rounded-3xl animate-zoom-in"
+        style="animation-delay:200ms"
+      >
+        <div class="card-body items-center text-center">
+          <MapPin class="w-12 h-12 mb-4" />
+          <h2 class="card-title text-xl font-bold">Ubicados en</h2>
+          <p class="text-base-content/80">Lima, Perú</p>
+        </div>
+      </div>
+      <div
+        class="card bg-base-100 shadow-xl rounded-3xl animate-zoom-in"
+        style="animation-delay:300ms"
+      >
+        <div class="card-body items-center text-center">
+          <Phone class="w-12 h-12 mb-4" />
+          <h2 class="card-title text-xl font-bold">Llámanos</h2>
+          <p class="text-base-content/80">+51 937 760 953</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 mt-20">
+      <div
+        class="card rounded-3xl shadow-xl max-w-4xl mx-auto animate-zoom-in bg-base-100/80 backdrop-blur"
+      >
+        <div class="card-body px-8 py-10 md:px-16">
+          <h2
+            class="card-title text-2xl md:text-3xl font-bold text-center justify-center mb-8 gap-2"
+          >
+            <MessageCircle class="w-8 h-8 mr-1 text-primary" />
+            Envíanos un <span class="text-primary">Mensaje</span> por WhatsApp
+          </h2>
+          <form
+            id="contact-form"
+            class="grid grid-cols-1 md:grid-cols-2 gap-8"
+            autocomplete="off"
+          >
+            <div class="space-y-6">
+              <div class="form-control w-full">
+                <label class="label">
+                  <span
+                    class="label-text text-base font-semibold text-base-content"
+                    >Nombre Completo</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Tu nombre completo"
+                  class="input input-lg input-primary input-bordered w-full bg-base-200/60 focus:bg-base-100"
+                  required
+                />
+              </div>
+              <div class="form-control w-full">
+                <label class="label">
+                  <span
+                    class="label-text text-base font-semibold text-base-content"
+                    >Correo Electrónico</span
+                  >
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="tu@email.com"
+                  class="input input-lg input-primary input-bordered w-full bg-base-200/60 focus:bg-base-100"
+                  required
+                />
+              </div>
+              <div class="form-control w-full">
+                <label class="label">
+                  <span
+                    class="label-text text-base font-semibold text-base-content"
+                    >Número de Teléfono</span
+                  >
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+51 999 999 999"
+                  class="input input-lg input-primary input-bordered w-full"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col h-full">
+              <div class="form-control flex-1">
+                <label class="label">
+                  <span
+                    class="label-text text-base font-semibold text-base-content"
+                    >Mensaje</span
+                  >
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Cuéntanos sobre tu proyecto o consulta..."
+                  class="textarea textarea-lg textarea-primary textarea-bordered h-40 min-h-[8rem] w-full bg-base-200/60 focus:bg-base-100 resize-none"
+                  required></textarea>
+              </div>
+              <div class="form-control mt-8 flex justify-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg rounded-full px-8 font-bold gap-2 shadow-md hover:scale-105 transition-transform duration-200"
+                >
+                  <MessageCircle class="w-5 h-5" />
+                  Enviar por WhatsApp
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" is:inline>
+    const form = document.getElementById("contact-form");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const name = fd.get("name")?.toString().trim();
+        const email = fd.get("email")?.toString().trim();
+        const phone = fd.get("phone")?.toString().trim();
+        const message = fd.get("message")?.toString().trim();
+
+        if (!name || !email || !phone || !message) {
+          alert("Por favor completa todos los campos");
+          return;
+        }
+
+        const base = "https://wa.me/51937760953";
+        const text = encodeURIComponent(
+          `Hola, soy ${name}.\nEmail: ${email}\nTeléfono: ${phone}\nMensaje: ${message}`,
+        );
+        const whatsappLink = `${base}?text=${text}`;
+        window.open(whatsappLink, "_blank");
+
+        form.reset();
+      });
+    }
+  </script>
+</Page>
