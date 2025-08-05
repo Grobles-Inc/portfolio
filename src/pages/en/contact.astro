@@ -20,8 +20,8 @@ const structuredData = {
 ---
 
 <Page
-  title="Contacto - Grobles Solutions | Hablemos de tu Proyecto"
-  description="¿Tienes una idea? Contacta con Grobles Solutions. Soporte 24/7, consulta gratuita y presupuesto personalizado para tu proyecto de software."
+  title="Contact - Grobles Solutions | Let's talk about your project"
+  description="Do you have an idea? Contact Grobles Solutions. 24/7 support, free consultation and personalized budget for your software project."
   structuredData={structuredData}
 >
   <section class="max-w-7xl mx-auto">
@@ -29,11 +29,11 @@ const structuredData = {
       class="flex flex-col items-center text-center space-y-6 py-12 lg:mt-20 animate-fade-in"
     >
       <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold">
-        Conecta Con <span class="italic">Nosotros</span>
+        Connect with <span class="italic">Us</span>
       </h1>
       <p class="max-w-2xl text-lg">
-        Tenemos un fuerte deseo de colaborar y damos la bienvenida a marcas
-        estimadas y emprendedores entusiastas para que se unan a nosotros.
+        We have a strong desire to collaborate and welcome esteemed brands and
+        enthusiastic entrepreneurs to join us.
       </p>
     </div>
 
@@ -44,7 +44,7 @@ const structuredData = {
       >
         <div class="card-body items-center text-center">
           <Mail class="w-12 h-12 mb-4" />
-          <h2 class="card-title text-xl font-bold">Nuestro Email</h2>
+          <h2 class="card-title text-xl font-bold">Our Email</h2>
           <p class="text-base-content/80">grobles.dev@gmail.com</p>
         </div>
       </div>
@@ -54,7 +54,7 @@ const structuredData = {
       >
         <div class="card-body items-center text-center">
           <MapPin class="w-12 h-12 mb-4" />
-          <h2 class="card-title text-xl font-bold">Ubicados en</h2>
+          <h2 class="card-title text-xl font-bold">Located in</h2>
           <p class="text-base-content/80">Lima, Perú</p>
         </div>
       </div>
@@ -64,7 +64,7 @@ const structuredData = {
       >
         <div class="card-body items-center text-center">
           <Phone class="w-12 h-12 mb-4" />
-          <h2 class="card-title text-xl font-bold">Llámanos</h2>
+          <h2 class="card-title text-xl font-bold">Call Us</h2>
           <p class="text-base-content/80">+51 937 760 953</p>
         </div>
       </div>
@@ -78,7 +78,7 @@ const structuredData = {
           <h2
             class="card-title text-2xl md:text-3xl font-bold text-center justify-center mb-8 gap-2"
           >
-            Envíanos un <span class="text-primary">Mensaje</span>
+            Send us a <span class="text-primary">Message</span>
           </h2>
           <form
             id="contact-form"
@@ -89,7 +89,7 @@ const structuredData = {
               <label class="label">
                 <span
                   class="label-text text-base font-semibold text-base-content"
-                  >Nombre Completo</span
+                  >Full Name</span
                 >
               </label>
               <input
@@ -104,7 +104,7 @@ const structuredData = {
               <label class="label">
                 <span
                   class="label-text text-base font-semibold text-base-content"
-                  >Correo Electrónico</span
+                  >Email</span
                 >
               </label>
               <input
@@ -119,7 +119,7 @@ const structuredData = {
               <label class="label">
                 <span
                   class="label-text text-base font-semibold text-base-content"
-                  >Número de Teléfono</span
+                  >Phone Number</span
                 >
               </label>
               <input
@@ -135,19 +135,19 @@ const structuredData = {
               <label class="label">
                 <span
                   class="label-text text-base font-semibold text-base-content"
-                  >Mensaje</span
+                  >Message</span
                 >
               </label>
               <textarea
                 name="message"
-                placeholder="Cuéntanos sobre tu proyecto o consulta..."
+                placeholder="Tell us about your project or consultation..."
                 class="textarea textarea-lg textarea-primary textarea-bordered rounded-xl h-40 min-h-[8rem] w-full bg-base-200/60 focus:bg-base-100 resize-none"
                 required></textarea>
             </div>
 
             <div class="form-control mt-8 flex justify-center">
               <button type="submit" class="btn btn-primary btn-lg">
-                Enviar Mensaje
+                Send Message
               </button>
             </div>
           </form>
@@ -168,13 +168,13 @@ const structuredData = {
         const message = fd.get("message")?.toString().trim();
 
         if (!name || !email || !phone || !message) {
-          alert("Por favor completa todos los campos");
+          alert("Please fill in all fields");
           return;
         }
 
         const base = "https://wa.me/51972557287";
         const text = encodeURIComponent(
-          `Hola, soy ${name}.\nEmail: ${email}\nTeléfono: ${phone}\nMensaje: ${message}`,
+          `Hello, I'm ${name}.\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
         );
         const whatsappLink = `${base}?text=${text}`;
         window.open(whatsappLink, "_blank");
