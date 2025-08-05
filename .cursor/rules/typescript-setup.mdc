@@ -1,0 +1,31 @@
+---
+globs: *.ts,*.tsx,*.astro
+---
+
+# TypeScript Configuration
+
+## Path Aliases
+The project uses path aliases configured in [tsconfig.json](mdc:tsconfig.json):
+- `@/*` maps to `./src/*`
+
+## Usage Examples
+```typescript
+import BaseHead from "@/components/BaseHead.astro";
+import { SITE_TITLE } from "@/consts";
+```
+
+## Type Safety
+- Use `CollectionEntry<"blog">` for blog post types
+- Import types from `astro:content` for content collections
+- Leverage Astro's built-in TypeScript support
+
+## Configuration
+- Extends `astro/tsconfigs/strict`
+- Strict null checks enabled
+- Includes all files except `dist/`
+
+## Best Practices
+- Always use path aliases for internal imports
+- Leverage TypeScript for component props
+- Use content collection types for type-safe blog handling
+- Follow strict TypeScript guidelines

@@ -1,0 +1,30 @@
+---
+globs: *.astro
+---
+
+# Astro Component Guidelines
+
+## Component Structure
+- Use TypeScript in frontmatter for type safety
+- Import types from `astro:content` for content collections
+- Use path aliases: `@/components/`, `@/layouts/`, etc.
+
+## Styling Approach
+- **Primary**: Use DaisyUI classes for component styling
+- **Secondary**: Use Tailwind CSS only when DaisyUI doesn't provide needed styles
+- Custom theme "grobles" is available with green-tinted color scheme
+
+## Key Components
+- [BaseHead.astro](mdc:src/components/BaseHead.astro) - SEO and meta tags
+- [Header.astro](mdc:src/components/Header.astro) - Site navigation
+- [Footer.astro](mdc:src/components/Footer.astro) - Site footer
+- [FormattedDate.astro](mdc:src/components/FormattedDate.astro) - Date formatting
+
+## Layout Components
+- [BlogPost.astro](mdc:src/layouts/BlogPost.astro) - Blog post layout with hero images
+- [Page.astro](mdc:src/layouts/Page.astro) - General page layout
+
+## Best Practices
+- Use `Image` component from `astro:assets` for optimized images
+- Leverage content collections for type-safe blog posts
+- Follow the established component naming and structure patterns

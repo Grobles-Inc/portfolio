@@ -1,0 +1,41 @@
+---
+alwaysApply: true
+---
+
+# Grobles - Technology Startup Portfolio
+
+This is an Astro-powered portfolio website for Grobles, a technology startup focused on:
+- Mobile app development
+- Web application development  
+- Digital marketing
+- Technology consultancy
+- Custom tech solutions
+
+## Project Structure
+
+## Core Configuration
+- [package.json](mdc:package.json) - Project dependencies and scripts
+- [astro.config.mjs](mdc:astro.config.mjs) - Astro configuration with MDX, sitemap, and Tailwind CSS
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript config with path aliases (`@/*` → `./src/*`)
+
+## Source Structure
+- [src/consts.ts](mdc:src/consts.ts) - Global constants (SITE_TITLE, SITE_DESCRIPTION)
+- [src/content.config.ts](mdc:src/content.config.ts) - Content collections schema for blog posts
+- [src/styles/global.css](mdc:src/styles/global.css) - Global styles with custom DaisyUI theme
+
+### Key Directories
+- `src/components/` - Reusable Astro components
+- `src/layouts/` - Page layouts (BlogPost.astro, Page.astro)
+- `src/pages/` - File-based routing pages
+- `src/content/blog/` - Blog/news posts and case studies
+- `src/assets/` - Static assets and images
+
+## Tech Stack
+- **Framework**: Astro 5.12.8
+- **Styling**: Tailwind CSS 4.1.11 + DaisyUI 5.0.50
+- **Content**: MDX support with content collections
+- **Icons**: Lucide Astro
+- **Fonts**: Poppins (Google Fonts)
+
+## Custom Theme
+Uses a custom DaisyUI theme called "grobles" with green-tinted color scheme that reflects the startup's brand identity, defined in global.css.

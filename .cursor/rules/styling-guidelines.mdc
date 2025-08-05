@@ -1,0 +1,39 @@
+---
+globs: *.css,*.astro
+---
+
+# Styling Guidelines
+
+## Primary Styling Framework
+Use **DaisyUI classes** as the primary styling approach. Only use raw Tailwind CSS when DaisyUI doesn't provide the needed functionality.
+
+## Custom Theme
+The project uses a custom DaisyUI theme called "grobles" with:
+- Green-tinted color palette
+- Light color scheme
+- Custom radius and sizing variables
+- Poppins font family
+
+## Global Styles
+[global.css](mdc:src/styles/global.css) contains:
+- Tailwind CSS and DaisyUI imports
+- Custom theme definition
+- Poppins font import
+- Custom animations: `fade-in` and `slide-up`
+
+## Available Custom Animations
+- `.animate-fade-in` - Fade in with scale effect (0.8s)
+- `.animate-slide-up` - Slide up effect (0.6s)
+
+## Color Scheme
+The "grobles" theme uses:
+- Base colors: Light greens (oklch format)
+- Primary: Green accent color
+- Consistent content colors for accessibility
+- Custom radius and border settings
+
+## Best Practices
+- Prefer DaisyUI semantic classes over utility classes
+- Use the custom theme colors consistently
+- Leverage the custom animations for enhanced UX
+- Maintain the established green color palette

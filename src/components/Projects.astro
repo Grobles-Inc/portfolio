@@ -1,0 +1,119 @@
+---
+import { Image } from "astro:assets";
+import project1 from "../assets/project1.png";
+import project2 from "../assets/project2.png";
+import project3 from "../assets/project3.png";
+import project4 from "../assets/project4.png";
+import project5 from "../assets/project5.png";
+import project6 from "../assets/project6.png";
+import project7 from "../assets/project7.png";
+import project8 from "../assets/project8.png";
+import project9 from "../assets/project9.png";
+
+const currentLocale = Astro.currentLocale || "en";
+
+const projects = [
+  {
+    name: "Ordee",
+    slug: "ordee",
+    image: project1,
+  },
+  {
+    name: "Monedo",
+    slug: "monedo",
+    image: project2,
+  },
+  {
+    name: "Exaya",
+    slug: "exaya",
+    image: project3,
+  },
+  {
+    name: "Blue-Motors",
+    slug: "blue-motors",
+    image: project4,
+  },
+  {
+    name: "VitaLight",
+    slug: "vitalight",
+    image: project5,
+  },
+  {
+    name: "Hotel Conquistador Huanta",
+    slug: "hotel-conquistador",
+    image: project6,
+  },
+  {
+    name: "Nido Perulina",
+    slug: "nido-perulina",
+    image: project7,
+  },
+  {
+    name: "Fundación HolosEduca",
+    slug: "fundacion-holoseduca",
+    image: project8,
+  },
+  {
+    name: "MLStreaming",
+    slug: "ml-streaming",
+    image: project9,
+  },
+];
+---
+
+<section class="max-w-7xl mx-auto">
+  <div
+    class="flex flex-col items-center text-center space-y-6 py-12 animate-fade-in"
+  >
+    <span class="font-semibold text-primary">
+      {currentLocale === "es" ? "Nuestros Trabajos" : "Our Projects"}
+    </span>
+    <h1 class="text-3xl max-w-3xl md:text-4xl lg:text-5xl font-bold">
+      {
+        currentLocale === "es"
+          ? "Dejemos Que Nuestro Trabajo Hable Por Sí Mismo"
+          : "Let Our Work Speak for Itself"
+      }
+    </h1>
+    <p class="max-w-2xl text-lg">
+      {
+        currentLocale === "es"
+          ? "Tu visión, nuestra experiencia. Colaboramos para crear soluciones innovadoras impactantes dentro de su plazo y presupuesto, impulsando sus ambiciones comerciales hacia adelante."
+          : "Your vision, our experience. We collaborate to create innovative, impactful solutions within your timeframe and budget, driving your commercial ambitions forward."
+      }
+    </p>
+    <a
+      href="/projects"
+      class="btn btn-lg btn-primary font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+    >
+      {currentLocale === "es" ? "Todos los Proyectos" : "All Projects"}
+    </a>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 animate-slide-up">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        projects.map((project) => (
+          <div class="flex flex-col items-center space-y-4">
+            <h3 class="text-2xl md:text-3xl font-bold italic underline">
+              {project.name}
+            </h3>
+            <a
+              href={`/projects/${project.slug}`}
+              class="flex flex-col items-center space-y-4 group"
+            >
+              <Image
+                src={project.image}
+                width={900}
+                height={900}
+                alt={project.name}
+                class="rounded-[2rem] hover:scale-105 transition-transform duration-300 shadow-xl"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

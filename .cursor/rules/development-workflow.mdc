@@ -1,0 +1,40 @@
+---
+description: "Development workflow and build processes"
+---
+
+# Development Workflow
+
+## Available Scripts
+From [package.json](mdc:package.json):
+- `bun dev` - Start development server
+- `bun build` - Build for production
+- `bun preview` - Preview production build
+- `bun astro` - Run Astro CLI commands
+
+## Development Server
+- Runs on default Astro port (usually 4321)
+- Hot reload enabled for all file types
+- TypeScript checking included
+
+## Build Process
+- Astro handles static site generation
+- Optimized images through Sharp
+- Sitemap generation included
+- RSS feed available at `/rss.xml`
+
+## Key Integrations
+- **MDX**: For enhanced markdown with components
+- **Sitemap**: Auto-generated for SEO
+- **RSS**: Blog feed generation
+- **Tailwind CSS**: Via Vite plugin integration
+
+## File-based Routing
+- Pages in `src/pages/` become routes
+- Dynamic routes: `[...slug].astro` for blog posts
+- Index files create directory routes
+
+## Asset Optimization
+- Use `astro:assets` Image component for optimization
+- Sharp handles image processing
+- Assets in `src/assets/` are processed
+- Public assets in `public/` are served as-is

@@ -1,0 +1,43 @@
+---
+globs: *.md,*.mdx,*.ts
+---
+
+# Content Management Guidelines
+
+## Content Collections
+Content for Grobles' portfolio (blog posts, case studies, project showcases) is managed through Astro's content collections system defined in [content.config.ts](mdc:src/content.config.ts).
+
+## Content Schema
+All content (blog posts, case studies, project showcases) must include:
+- `title: string` - Post title
+- `description: string` - Post description
+- `pubDate: Date` - Publication date (auto-coerced from string)
+- `updatedDate?: Date` - Optional update date
+- `heroImage?: ImageMetadata` - Optional hero image
+
+## Content Location
+- Blog posts, case studies, project showcases: `src/content/blog/`
+- Supported formats: `.md` and `.mdx`
+- Assets: `src/assets/` for images, project screenshots, etc.
+
+## File Naming
+- Use kebab-case for blog post filenames
+- Example: `my-awesome-post.md`
+
+## Frontmatter Example
+```yaml
+---
+title: "My Blog Post"
+description: "A description of my post"
+pubDate: "2024-01-15"
+updatedDate: "2024-01-20"
+heroImage: "../../assets/my-image.jpg"
+---
+```
+
+## Global Constants
+Site-wide constants are defined in [consts.ts](mdc:src/consts.ts):
+- `SITE_TITLE` - Site title
+- `SITE_DESCRIPTION` - Site description
+
+Update these constants when changing site metadata.
