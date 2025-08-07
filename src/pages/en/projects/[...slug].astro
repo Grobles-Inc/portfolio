@@ -42,7 +42,12 @@ const { Content } = await render(project);
         <span class="text-base-content/60">{project.data.client}</span>
       </div>
 
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">{project.data.title}</h1>
+      <h1
+        class="text-4xl md:text-5xl font-bold mb-6"
+        transition:name={`project-title-${project.data.slug}`}
+      >
+        {project.data.title}
+      </h1>
 
       <p class="text-xl text-base-content/70 mb-8 leading-relaxed">
         {project.data.fullDescription}
@@ -120,6 +125,7 @@ const { Content } = await render(project);
             height={500}
             class="rounded-2xl shadow-2xl w-full object-cover"
             loading="eager"
+            transition:name={`project-image-${project.data.slug}`}
           />
         </figure>
       )
