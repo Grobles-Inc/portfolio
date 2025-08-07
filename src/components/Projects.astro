@@ -10,7 +10,7 @@ import project7 from "../assets/project7.png";
 import project8 from "../assets/project8.png";
 import project9 from "../assets/project9.png";
 
-const currentLocale = Astro.currentLocale || "en";
+const currentLocale = Astro.currentLocale || "es";
 
 const projects = [
   {
@@ -83,7 +83,7 @@ const projects = [
       }
     </p>
     <a
-      href="/projects"
+      href={currentLocale === "es" ? "/projects" : "/en/projects"}
       class="btn btn-lg btn-primary font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
     >
       {currentLocale === "es" ? "Todos los Proyectos" : "All Projects"}
@@ -98,7 +98,7 @@ const projects = [
               {project.name}
             </h3>
             <a
-              href={`/projects/${project.slug}`}
+              href={`${currentLocale === "es" ? "" : "/en"}/projects/${project.slug}`}
               class="flex flex-col items-center space-y-4 group"
             >
               <Image

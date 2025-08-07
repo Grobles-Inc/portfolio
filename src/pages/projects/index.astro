@@ -4,8 +4,8 @@ import Page from "@/layouts/Page.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import ProjectFilter from "@/components/ProjectFilter.astro";
 
-// Get all projects from the content collection
-const projects = await getCollection("projects");
+// Get all projects from the Spanish content collection
+const projects = await getCollection("projects-es");
 
 function slugify(text: string) {
 	return text

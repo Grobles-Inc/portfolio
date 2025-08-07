@@ -13,14 +13,14 @@ import {
 } from "@lucide/astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+  const projects = await getCollection("projects-en");
   return projects.map((project) => ({
     params: { slug: project.data.slug },
     props: project,
   }));
 }
 
-type Props = CollectionEntry<"projects">;
+type Props = CollectionEntry<"projects-en">;
 
 const project = Astro.props;
 const { Content } = await render(project);

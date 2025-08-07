@@ -16,8 +16,9 @@ const blog = defineCollection({
 		}),
 });
 
-const projects = defineCollection({
-	loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
+// Spanish projects collection
+const projectsEs = defineCollection({
+	loader: glob({ base: './src/content/projects/es', pattern: '**/*.{md,mdx}' }),
 	schema: ({ image }) => z.object({
 		id: z.string(),
 		title: z.string(),
@@ -36,4 +37,29 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { blog, projects };
+// English projects collection
+const projectsEn = defineCollection({
+	loader: glob({ base: './src/content/projects/en', pattern: '**/*.{md,mdx}' }),
+	schema: ({ image }) => z.object({
+		id: z.string(),
+		title: z.string(),
+		slug: z.string(),
+		pubDate: z.coerce.date(),
+		description: z.string(),
+		fullDescription: z.string(),
+		image: image().optional(),
+		technologies: z.array(z.string()),
+		liveDemo: z.string().optional(),
+		github: z.string().optional(),
+		category: z.string(),
+		client: z.string(),
+		duration: z.string(),
+		features: z.array(z.string()),
+	}),
+});
+
+export const collections = { 
+	blog, 
+	'projects-es': projectsEs,
+	'projects-en': projectsEn 
+};

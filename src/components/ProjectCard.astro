@@ -105,7 +105,9 @@ const currentLocale = Astro.currentLocale || "es";
       </div>
 
       <a
-        href={`/${currentLocale}/projects/${slug}`}
+        href={currentLocale === "es"
+          ? `/projects/${slug}`
+          : `/en/projects/${slug}`}
         class="btn btn-sm btn-primary"
       >
         {currentLocale === "es" ? "Ver Detalles" : "View Details"}

@@ -5,7 +5,7 @@ slug: "ordee"
 pubDate: "2024-01-15"
 description: "Aplicación móvil para la gestión de ordenes en restaurantes."
 fullDescription: "Ordee es una aplicación móvil para la gestión de ordenes en restaurantes, que permite llevar un control de las ordenes, en tiempo real, y que se pueden ver en un panel de administración."
-image: "../../assets/project1.png"
+image: "../../../assets/project1.png"
 technologies: ["ReactNative", "TypeScript", "NativeWind", "Supabase", "Tailwind CSS"]
 liveDemo: "https://ordee.framer.website/"
 github: "https://github.com/Grobles-Inc/ordee"
