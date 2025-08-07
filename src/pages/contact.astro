@@ -39,42 +39,40 @@ const structuredData = {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 mb-20 mt-20">
       <div
-        class="card bg-base-100 shadow-xl rounded-3xl animate-zoom-in"
+        class="card bg-gradient-to-r from-primary to-secondary shadow rounded-3xl animate-zoom-in"
         style="animation-delay:100ms"
       >
         <div class="card-body items-center text-center">
           <Mail class="w-12 h-12 mb-4" />
-          <h2 class="card-title text-xl font-bold">Nuestro Email</h2>
+          <h2 class="card-title text-xl font-bold">Email</h2>
           <p class="text-base-content/80">grobles.dev@gmail.com</p>
         </div>
       </div>
       <div
-        class="card bg-base-100 shadow-xl rounded-3xl animate-zoom-in"
+        class="card bg-gradient-to-r from-primary to-secondary shadow rounded-3xl animate-zoom-in"
         style="animation-delay:200ms"
       >
         <div class="card-body items-center text-center">
           <MapPin class="w-12 h-12 mb-4" />
-          <h2 class="card-title text-xl font-bold">Ubicados en</h2>
+          <h2 class="card-title text-xl font-bold">Ubicación</h2>
           <p class="text-base-content/80">Lima, Perú</p>
         </div>
       </div>
       <div
-        class="card bg-base-100 shadow-xl rounded-3xl animate-zoom-in"
+        class="card bg-gradient-to-r from-primary to-secondary shadow rounded-3xl animate-zoom-in"
         style="animation-delay:300ms"
       >
         <div class="card-body items-center text-center">
           <Phone class="w-12 h-12 mb-4" />
-          <h2 class="card-title text-xl font-bold">Llámanos</h2>
+          <h2 class="card-title text-xl font-bold">Teléfono</h2>
           <p class="text-base-content/80">+51 937 760 953</p>
         </div>
       </div>
     </div>
 
-    <div class="px-4 mt-20">
-      <div
-        class="card rounded-3xl shadow-xl max-w-4xl mx-auto animate-zoom-in bg-base-100/80 backdrop-blur"
-      >
-        <div class="card-body px-8 py-10 md:px-16">
+    <div class="mt-20">
+      <div class="card rounded-3xl max-w-2xl mx-auto animate-zoom-in">
+        <div class="px-4">
           <h2
             class="card-title text-2xl md:text-3xl font-bold text-center justify-center mb-8 gap-2"
           >
@@ -82,71 +80,47 @@ const structuredData = {
           </h2>
           <form
             id="contact-form"
-            class="grid grid-cols-1 gap-8"
+            class="flex flex-col gap-4"
             autocomplete="off"
           >
             <div class="form-control w-full">
-              <label class="label">
-                <span
-                  class="label-text text-base font-semibold text-base-content"
-                  >Nombre Completo</span
-                >
-              </label>
               <input
                 type="text"
                 name="name"
-                placeholder="Tu nombre completo"
-                class="input input-lg input-primary input-bordered rounded-xl w-full bg-base-200/60 focus:bg-base-100"
+                placeholder="Nombres"
+                class="input input-lg input-primary rounded-xl w-full"
                 required
               />
             </div>
             <div class="form-control w-full">
-              <label class="label">
-                <span
-                  class="label-text text-base font-semibold text-base-content"
-                  >Correo Electrónico</span
-                >
-              </label>
               <input
                 type="email"
                 name="email"
-                placeholder="tu@email.com"
-                class="input input-lg input-primary input-bordered rounded-xl w-full bg-base-200/60 focus:bg-base-100"
+                placeholder="Correo electrónico"
+                class="input input-lg input-primary rounded-xl w-full"
                 required
               />
             </div>
             <div class="form-control w-full">
-              <label class="label">
-                <span
-                  class="label-text text-base font-semibold text-base-content"
-                  >Número de Teléfono</span
-                >
-              </label>
               <input
                 type="tel"
                 name="phone"
-                placeholder="+51 999 999 999"
-                class="input input-lg input-primary input-bordered rounded-xl w-full"
+                placeholder="Teléfono"
+                class="input input-lg input-primary rounded-xl w-full"
                 required
               />
             </div>
 
             <div class="form-control flex-1">
-              <label class="label">
-                <span
-                  class="label-text text-base font-semibold text-base-content"
-                  >Mensaje</span
-                >
-              </label>
               <textarea
                 name="message"
                 placeholder="Cuéntanos sobre tu proyecto o consulta..."
-                class="textarea textarea-lg textarea-primary textarea-bordered rounded-xl h-40 min-h-[8rem] w-full bg-base-200/60 focus:bg-base-100 resize-none"
+                class="textarea textarea-lg textarea-primary rounded-xl h-40 min-h-[8rem] w-full resize-none"
                 required></textarea>
             </div>
 
             <div class="form-control mt-8 flex justify-center">
-              <button type="submit" class="btn btn-primary btn-lg">
+              <button type="submit" class="btn btn-primary btn-lg w-full">
                 Enviar Mensaje
               </button>
             </div>

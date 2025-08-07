@@ -2,11 +2,18 @@
 import { Facebook, Github, Menu } from "@lucide/astro";
 import { SITE_TITLE } from "../consts";
 
-const navLinks = [
+const navLinksEs = [
 	{ href: "/", label: "Inicio" },
 	{ href: "/about", label: "Nosotros" },
 	{ href: "/services", label: "Servicios" },
 	{ href: "/projects", label: "Proyectos" },
+];
+
+const navLinksEn = [
+	{ href: "/en", label: "Home" },
+	{ href: "/en/about", label: "About" },
+	{ href: "/en/services", label: "Services" },
+	{ href: "/en/projects", label: "Projects" },
 ];
 
 const socialLinks = [
@@ -21,19 +28,113 @@ const socialLinks = [
 		icon: Github,
 	},
 ];
+
+const currentLocale = Astro.currentLocale || "en";
+const navLinks = currentLocale === "es" ? navLinksEs : navLinksEn;
 ---
 
-<header
-	id="main-header"
-	class="navbar bg-base-100 shadow-lg fixed top-0 z-50 w-full transition-transform duration-300"
->
-	<div class="max-w-7xl mx-auto w-full px-4 flex flex-row justify-between">
-		<!-- Logo -->
-		<div class="navbar-start gap-2">
+<div class="drawer drawer-start">
+	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+	<div class="drawer-content flex flex-col">
+		<!-- Navbar -->
+		<header
+			id="main-header"
+			class="navbar bg-primary fixed top-0 z-50 w-full transition-transform duration-300"
+		>
+			<div
+				class="max-w-7xl mx-auto w-full px-4 flex flex-row justify-between items-center"
+			>
+				<!-- Navbar Start: Logo -->
+				<div class="navbar-start">
+					<a
+						href={currentLocale === "es" ? "/" : "/en"}
+						aria-label="Grobles Home"
+						class="flex items-center"
+					>
+						<img
+							src="/grobles.png"
+							alt="Grobles Logo"
+							class="size-14 rounded-lg object-cover"
+							loading="lazy"
+							decoding="async"
+						/>
+						<span class="font-bold text-xl font-poppins text-base-content">
+							{SITE_TITLE}
+						</span>
+					</a>
+				</div>
+
+				<!-- Navbar Center: Desktop Navigation -->
+				<div class="navbar-center hidden lg:flex flex-1 justify-center">
+					<ul class="flex gap-2">
+						{
+							navLinks.map(({ href, label }) => (
+								<li>
+									<a
+										href={href}
+										class={`px-4 py-2 font-medium transition-colors ${
+											Astro.url.pathname === href
+												? "btn btn-secondary btn-active text-white"
+												: "btn btn-ghost "
+										}`}
+										aria-current={
+											Astro.url.pathname === href ? "page" : undefined
+										}
+									>
+										{label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<!-- Navbar End: Desktop Actions & Mobile Menu Toggle -->
+				<div class="navbar-end">
+					{/* Desktop actions */}
+					<div class="hidden lg:flex gap-2 items-center">
+						{
+							socialLinks.map(({ href, label, icon: Icon }) => (
+								<a
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={label}
+									class="btn btn-ghost btn-circle"
+								>
+									<Icon class="w-5 h-5" />
+								</a>
+							))
+						}
+						<a href="/contact" class="btn bg-white">
+							{currentLocale === "es" ? "Contáctanos" : "Contact us"}
+						</a>
+					</div>
+					{/* Mobile menu toggle */}
+					<div class="lg:hidden">
+						<label
+							for="my-drawer-3"
+							aria-label="open sidebar"
+							class="btn btn-square btn-ghost"
+						>
+							<Menu class="w-6 h-6" />
+						</label>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Page content will be rendered here by Astro -->
+		<slot />
+	</div>
+	<div class="drawer-side z-50">
+		<label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"
+		></label>
+
+		<ul class="menu bg-base-200 min-h-full w-72 p-4">
 			<a
-				href="/"
+				href={currentLocale === "es" ? "/" : "/en"}
 				aria-label="Grobles Home"
-				class="flex items-center navbar-start"
+				class="flex items-center mb-4"
 			>
 				<img
 					src="/grobles.png"
@@ -42,123 +143,59 @@ const socialLinks = [
 					loading="lazy"
 					decoding="async"
 				/>
-				<span
-					class="font-bold text-lg md:text-xl font-poppins text-base-content"
-				>
+				<span class="font-bold text-xl font-poppins text-base-content">
 					{SITE_TITLE}
 				</span>
 			</a>
-		</div>
-
-		<!-- Desktop Navigation -->
-		<div class="navbar-center hidden lg:flex">
-			<ul class="flex gap-2">
-				{
-					navLinks.map(({ href, label }) => (
-						<li>
-							<a
-								href={href}
-								class={`px-4 py-2 rounded-lg font-medium transition-colors ${
-									Astro.url.pathname === href
-										? "bg-primary/10 text-primary font-semibold shadow-none"
-										: "hover:bg-base-200 text-base-content"
-								}`}
-								aria-current={Astro.url.pathname === href ? "page" : undefined}
-							>
-								{label}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-
-		<!-- Desktop Actions -->
-		<div class="navbar-end hidden lg:flex gap-2 items-center">
+			<!-- Sidebar content here -->
 			{
-				socialLinks.map(({ href, label, icon: Icon }) => (
-					<a
-						href={href}
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label={label}
-						class="btn btn-ghost btn-circle"
-					>
-						<Icon class="w-5 h-5" />
-					</a>
-				))
-			}
-			<a href="/contact" class="btn btn-primary px-5 font-semibold"
-				>Contáctanos</a
-			>
-		</div>
-
-		<!-- Mobile Menu -->
-		<div class="navbar-end lg:hidden">
-			<div class="dropdown dropdown-end">
-				<div
-					tabindex="0"
-					role="button"
-					class="btn btn-ghost btn-circle"
-					aria-label="Toggle menu"
-				>
-					<Menu class="w-6 h-6" />
-				</div>
-				<ul
-					tabindex="0"
-					class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-				>
-					{
-						navLinks.map(({ href, label }) => (
-							<li>
-								<a
-									href={href}
-									class={`px-4 py-2 rounded-lg font-medium ${
-										Astro.url.pathname === href
-											? "bg-primary/10 text-primary font-semibold"
-											: "hover:bg-base-200 text-base-content"
-									}`}
-									aria-current={
-										Astro.url.pathname === href ? "page" : undefined
-									}
-								>
-									{label}
-								</a>
-							</li>
-						))
-					}
-					<li><hr class="my-2" /></li>
+				navLinks.map(({ href, label }) => (
 					<li>
 						<a
-							href="/contact"
-							class="btn btn-primary btn-sm w-full font-semibold">Contáctanos</a
+							href={href}
+							class={`px-4 py-2 rounded-lg text-lg font-semibold ${
+								Astro.url.pathname === href
+									? "bg-primary/10 text-primary font-semibold"
+									: "hover:bg-base-200 text-base-content"
+							}`}
+							aria-current={Astro.url.pathname === href ? "page" : undefined}
 						>
+							{label}
+						</a>
 					</li>
-					<li class="flex flex-row gap-2 justify-center pt-2">
-						{
-							socialLinks.map(({ href, label, icon: Icon }) => (
-								<a
-									href={href}
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label={label}
-									class="btn btn-ghost btn-circle btn-sm"
-								>
-									<Icon class="w-4 h-4" />
-								</a>
-							))
-						}
-					</li>
-				</ul>
-			</div>
-		</div>
+				))
+			}
+			<li>
+				<a
+					href="/contact"
+					class="btn btn-primary mt-4 btn-lg w-full font-semibold"
+				>
+					{currentLocale === "es" ? "Contáctanos" : "Contact us"}
+				</a>
+			</li>
+			<li class="flex flex-row gap-2 justify-center pt-2">
+				{
+					socialLinks.map(({ href, label, icon: Icon }) => (
+						<a
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={label}
+							class="btn btn-ghost btn-circle btn-sm"
+						>
+							<Icon class="w-4 h-4" />
+						</a>
+					))
+				}
+			</li>
+		</ul>
 	</div>
-</header>
+</div>
 
 <script>
 	const header = document.getElementById("main-header");
-	const drawerCheckbox = document.querySelector(
-		'.dropdown input[type="checkbox"]',
+	const drawerCheckbox = document.getElementById(
+		"my-drawer-3",
 	) as HTMLInputElement;
 
 	if (header) {

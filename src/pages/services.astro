@@ -1,12 +1,5 @@
 ---
-import {
-  Monitor,
-  Smartphone,
-  Server,
-  Paintbrush,
-  ChartLine,
-  Wrench,
-} from "@lucide/astro";
+import ServicesComponent from "@/components/Services.astro";
 import Page from "@/layouts/Page.astro";
 
 const structuredData = {
@@ -44,13 +37,11 @@ const structuredData = {
   structuredData={structuredData}
 >
   <section class="max-w-7xl mx-auto">
-    <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-12 px-4"
-      data-aos="fade-up"
-    >
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-12 px-4">
       <div class="flex flex-col space-y-6">
         <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold">
-          Descubre Nuestros <span class="italic">Servicios Exclusivos</span>
+          Descubre Nuestros
+          <span class="italic text-primary">Servicios Exclusivos</span>
         </h1>
         <p class="text-lg">
           Estamos aquí para brindarle la más alta calidad de servicio. Con
@@ -69,146 +60,39 @@ const structuredData = {
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-12 px-4 text-lg"
-      data-aos="fade-up"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-12 px-4 text-lg"
     >
       <div
         class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center cursor-pointer bg-base-200"
       >
-        <h3 class="text-4xl font-bold mb-2">15+</h3>
-        <p class="text-gray-700">Proyectos completados</p>
-      </div>
-      <div
-        class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center cursor-pointer bg-base-200"
-      >
-        <h3 class="text-4xl font-bold mb-2">10+</h3>
+        <h3
+          class="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text"
+        >
+          10+
+        </h3>
         <p class="text-gray-700">Años de experiencia</p>
       </div>
       <div
         class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center cursor-pointer bg-base-200"
       >
-        <h3 class="text-4xl font-bold mb-2">95%</h3>
+        <h3
+          class="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text"
+        >
+          95%
+        </h3>
         <p class="text-gray-700">Satisfacción del Cliente</p>
       </div>
       <div
         class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center cursor-pointer bg-base-200"
       >
-        <h3 class="text-4xl font-bold mb-2">24x7</h3>
+        <h3
+          class="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text"
+        >
+          24x7
+        </h3>
         <p class="text-gray-700">Soporte al cliente</p>
       </div>
     </div>
-
-    <div
-      class="flex flex-col items-center text-center space-y-6 py-12"
-      data-aos="fade-up"
-    >
-      <span class="font-semibold">Nuestros Servicios</span>
-      <h1
-        class="text-3xl max-w-3xl md:text-4xl lg:text-5xl leading-tight font-bold"
-      >
-        Servicios De Diseño y Desarrollo de Alto Impacto
-      </h1>
-      <p class="max-w-2xl text-lg">
-        Nos asociamos con usted para crear un modelo de negocio exitoso que
-        refleje auténticamente su visión única mientras logra sus objetivos de
-        conversión deseados.
-      </p>
-      <a href="/contact" class="btn btn-lg btn-primary"> Comenzar ahora </a>
-    </div>
-
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-12 max-w-6xl mx-auto"
-      data-aos="fade-up"
-    >
-      <!-- Tarjeta 1 -->
-      <div class="p-8 rounded-xl bg-base-200">
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="text-4xl text-primary rounded-full p-4 bg-primary/10">
-            <Monitor />
-          </div>
-          <h3 class="text-2xl font-bold">Desarrollo Web</h3>
-          <p class="text-gray-600">
-            Creamos sitios web modernos y responsivos que impulsan tu presencia
-            digital y generan resultados tangibles.
-          </p>
-          <a href="/contact" class="btn btn-primary"> Comenzar ahora </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="p-8 rounded-xl bg-base-200">
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="text-4xl text-primary rounded-full p-4 bg-primary/10">
-            <Smartphone />
-          </div>
-          <h3 class="text-2xl font-bold">Desarrollo Móvil</h3>
-          <p class="text-gray-600">
-            Desarrollamos aplicaciones móviles nativas y multiplataforma que
-            ofrecen experiencias excepcionales.
-          </p>
-          <a href="/contact" class="btn btn-primary"> Comenzar ahora </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="p-8 rounded-xl bg-base-200">
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="text-4xl text-primary rounded-full p-4 bg-primary/10">
-            <Server />
-          </div>
-          <h3 class="text-2xl font-bold">Desarrollo Backend</h3>
-          <p class="text-gray-600">
-            Construimos APIs robustas y escalables que potencian tus
-            aplicaciones con la mejor tecnología.
-          </p>
-          <a href="/contact" class="btn btn-primary"> Comenzar ahora </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 4 -->
-      <div class="p-8 rounded-xl bg-base-200">
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="text-4xl text-primary rounded-full p-4 bg-primary/10">
-            <Paintbrush />
-          </div>
-          <h3 class="text-2xl font-bold">Diseño UI/UX</h3>
-          <p class="text-gray-600">
-            Creamos interfaces intuitivas y atractivas que mejoran la
-            experiencia de usuario y aumentan la conversión.
-          </p>
-          <a href="/contact" class="btn btn-primary"> Comenzar ahora </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 5 -->
-      <div class="p-8 rounded-xl bg-base-200">
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="text-4xl text-primary rounded-full p-4 bg-primary/10">
-            <ChartLine />
-          </div>
-          <h3 class="text-2xl font-bold">Marketing Digital</h3>
-          <p class="text-gray-600">
-            Impulsa tu negocio con estrategias de marketing digital, publicidad
-            en redes sociales y posicionamiento SEO para llegar a más clientes.
-          </p>
-          <a href="/contact" class="btn btn-primary"> Comenzar ahora </a>
-        </div>
-      </div>
-
-      <!-- Tarjeta 6 -->
-      <div class="p-8 rounded-xl bg-base-200">
-        <div class="flex flex-col items-center text-center space-y-4">
-          <div class="text-4xl text-primary rounded-full p-4 bg-primary/10">
-            <Wrench />
-          </div>
-          <h3 class="text-2xl font-bold">Soporte y Mantenimiento</h3>
-          <p class="text-gray-600">
-            Ofrecemos soporte técnico y mantenimiento continuo para asegurar que
-            tus sistemas funcionen de manera óptima y segura en todo momento.
-          </p>
-          <a href="/contact" class="btn btn-primary"> Comenzar ahora </a>
-        </div>
-      </div>
-    </div>
   </section>
+  <ServicesComponent />
 </Page>

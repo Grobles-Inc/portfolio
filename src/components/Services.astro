@@ -1,13 +1,91 @@
 ---
 import {
-  Monitor,
-  Smartphone,
-  Server,
-  Paintbrush,
+  Brain,
   ChartLine,
-  Wrench,
+  Monitor,
+  Paintbrush,
+  Server,
+  Smartphone,
 } from "@lucide/astro";
 const currentLocale = Astro.currentLocale || "en";
+
+const servicesEs = [
+  {
+    title: "Desarrollo Web",
+    description:
+      "Creamos sistemas web modernos y responsivos que impulsan tu presencia digital y generan resultados tangibles.",
+    icon: Monitor,
+  },
+  {
+    title: "Desarrollo Móvil",
+    description:
+      "Desarrollamos aplicaciones móviles nativas y multiplataforma que ofrecen experiencias excepcionales.",
+    icon: Smartphone,
+  },
+  {
+    title: "Ciberseguridad",
+    description:
+      "Protegemos tu negocio con las mejores estrategias de ciberseguridad que ofrecemos.",
+    icon: Server,
+  },
+  {
+    title: "Diseño UI/UX",
+    description:
+      "Creamos interfaces intuitivas y atractivas que mejoran la experiencia de usuario y aumentan la conversión.",
+    icon: Paintbrush,
+  },
+  {
+    title: "Marketing Digital",
+    description:
+      "Impulsa tu negocio con estrategias de marketing digital, publicidad en redes sociales y posicionamiento SEO para llegar a más clientes.",
+    icon: ChartLine,
+  },
+  {
+    title: "Consultoría",
+    description:
+      "Ofrecemos consultoría para que tu negocio crezca y sea más eficiente.",
+    icon: Brain,
+  },
+];
+
+const servicesEn = [
+  {
+    title: "Web Development",
+    description:
+      "We create modern and responsive websites that boost your digital presence and generate tangible results.",
+    icon: Monitor,
+  },
+  {
+    title: "Mobile Development",
+    description:
+      "We develop native and cross-platform mobile applications that offer exceptional experiences.",
+    icon: Smartphone,
+  },
+  {
+    title: "Cybersecurity",
+    description:
+      "We protect your business with the best cybersecurity strategies we offer.",
+    icon: Server,
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "We create intuitive and attractive interfaces that improve user experience and increase conversion.",
+    icon: Paintbrush,
+  },
+  {
+    title: "Digital Marketing",
+    description:
+      "We promote your business with digital marketing strategies, social media advertising, and SEO positioning to reach more customers.",
+    icon: ChartLine,
+  },
+  {
+    title: "Consulting",
+    description:
+      "We offer consulting to help your business grow and be more efficient.",
+    icon: Brain,
+  },
+];
 ---
 
 <section class="max-w-7xl mx-auto">
@@ -20,15 +98,15 @@ const currentLocale = Astro.currentLocale || "en";
     <h1 class="text-3xl max-w-3xl md:text-4xl lg:text-5xl font-bold">
       {
         currentLocale === "es"
-          ? "Servicios De Diseño y Desarrollo de Alto Impacto"
-          : "Design and Development Services of High Impact"
+          ? "Brindamos servicios TI de alta calidad"
+          : "We provide high-quality IT services"
       }
     </h1>
     <p class="max-w-2xl text-lg">
       {
         currentLocale === "es"
-          ? "Nos asociamos con usted para crear un modelo de negocio exitoso que refleje auténticamente su visión única mientras logra sus objetivos de conversión deseados."
-          : "We partner with you to create a successful business model that truly reflects your unique vision while achieving your desired conversion goals."
+          ? "Te escuchamos, te proponemos las soluciones que necesitas y llegamos a un acuerdo con el objetivo de que tu negocio crezca."
+          : "We listen to you, propose the solutions you need and reach an agreement with the goal of your business growing."
       }
     </p>
     <a
@@ -41,149 +119,30 @@ const currentLocale = Astro.currentLocale || "en";
   <div
     class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 py-12 max-w-6xl mx-auto animate-slide-up"
   >
-    <!-- Tarjeta 1 -->
-    <div
-      class="p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer bg-base-200"
-    >
-      <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
-          <Monitor class="w-10 h-10" />
-        </div>
-        <h3 class="text-2xl font-bold">Desarrollo Web</h3>
-        <p class="text-base-content/70">
-          {
-            currentLocale === "es"
-              ? "Creamos sitios web modernos y responsivos que impulsan tu presencia digital y generan resultados tangibles."
-              : "We create modern and responsive websites that boost your digital presence and generate tangible results."
-          }
-        </p>
-        <a
-          href="/contact"
-          class="btn btn-outline btn-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
-        >
-          {currentLocale === "es" ? "Comenzar ahora" : "Start now"}
-        </a>
-      </div>
-    </div>
-    <!-- Tarjeta 2 -->
-    <div
-      class="p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer bg-base-200"
-    >
-      <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
-          <Smartphone class="w-10 h-10" />
-        </div>
-        <h3 class="text-2xl font-bold">Desarrollo Móvil</h3>
-        <p class="text-base-content/70">
-          {
-            currentLocale === "es"
-              ? "Desarrollamos aplicaciones móviles nativas y multiplataforma que ofrecen experiencias excepcionales."
-              : "We develop native and multiplatform mobile applications that offer exceptional experiences."
-          }
-        </p>
-        <a
-          href="/contact"
-          class="btn btn-outline btn-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
-        >
-          {currentLocale === "es" ? "Comenzar ahora" : "Start now"}
-        </a>
-      </div>
-    </div>
-    <!-- Tarjeta 3 -->
-    <div
-      class="p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer bg-base-200"
-    >
-      <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
-          <Server class="w-10 h-10" />
-        </div>
-        <h3 class="text-2xl font-bold">Desarrollo Backend</h3>
-        <p class="text-base-content/70">
-          {
-            currentLocale === "es"
-              ? "Construimos APIs robustas y escalables que potencian tus aplicaciones con la mejor tecnología."
-              : "We build robust and scalable APIs that power your applications with the best technology."
-          }
-        </p>
-        <a
-          href="/contact"
-          class="btn btn-outline btn-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
-        >
-          {currentLocale === "es" ? "Comenzar ahora" : "Start now"}
-        </a>
-      </div>
-    </div>
-    <!-- Tarjeta 4 -->
-    <div
-      class="p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer bg-base-200"
-    >
-      <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
-          <Paintbrush class="w-10 h-10" />
-        </div>
-        <h3 class="text-2xl font-bold">Diseño UI/UX</h3>
-        <p class="text-base-content/70">
-          {
-            currentLocale === "es"
-              ? "Creamos interfaces intuitivas y atractivas que mejoran la experiencia de usuario y aumentan la conversión."
-              : "We create intuitive and attractive interfaces that improve user experience and increase conversion."
-          }
-        </p>
-        <a
-          href="/contact"
-          class="btn btn-outline btn-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
-        >
-          {currentLocale === "es" ? "Comenzar ahora" : "Start now"}
-        </a>
-      </div>
-    </div>
-    <!-- Tarjeta 5 -->
-    <div
-      class="p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer bg-base-200"
-    >
-      <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
-          <ChartLine class="w-10 h-10" />
-        </div>
-        <h3 class="text-2xl font-bold">Marketing Digital</h3>
-        <p class="text-base-content/70">
-          {
-            currentLocale === "es"
-              ? "Impulsa tu negocio con estrategias de marketing digital, publicidad en redes sociales y posicionamiento SEO para llegar a más clientes."
-              : "Boost your business with digital marketing strategies, social media advertising, and SEO positioning to reach more customers."
-          }
-        </p>
-        <a
-          href="/contact"
-          class="btn btn-outline btn-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
-        >
-          {currentLocale === "es" ? "Comenzar ahora" : "Start now"}
-        </a>
-      </div>
-    </div>
-    <!-- Tarjeta 6 -->
-    <div
-      class="p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer bg-base-200"
-    >
-      <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
-          <Wrench class="w-10 h-10" />
-        </div>
-        <h3 class="text-2xl font-bold">Soporte y Mantenimiento</h3>
-        <p class="text-base-content/70">
-          {
-            currentLocale === "es"
-              ? "Ofrecemos soporte técnico y mantenimiento continuo para asegurar que tus sistemas funcionen de manera óptima y segura en todo momento."
-              : "We offer continuous technical support and maintenance to ensure your systems operate optimally and securely at all times."
-          }
-        </p>
-        <a
-          href="/contact"
-          class="btn btn-outline btn-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
-        >
-          {currentLocale === "es" ? "Comenzar ahora" : "Start now"}
-        </a>
-      </div>
-    </div>
+    {
+      currentLocale === "es"
+        ? servicesEs.map((service) => (
+            <div class="p-8 rounded-xl shadow  bg-base-200">
+              <div class="flex flex-col items-center text-center space-y-4">
+                <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
+                  <service.icon class="w-10 h-10" />
+                </div>
+                <h3 class="text-2xl font-bold">{service.title}</h3>
+                <p class="text-base-content/70">{service.description}</p>
+              </div>
+            </div>
+          ))
+        : servicesEn.map((service) => (
+            <div class="p-8 rounded-xl shadow  bg-base-200">
+              <div class="flex flex-col items-center text-center space-y-4">
+                <div class="bg-primary text-primary-content rounded-full p-4 mb-2">
+                  <service.icon class="w-10 h-10" />
+                </div>
+                <h3 class="text-2xl font-bold">{service.title}</h3>
+                <p class="text-base-content/70">{service.description}</p>
+              </div>
+            </div>
+          ))
+    }
   </div>
 </section>

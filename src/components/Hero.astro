@@ -23,7 +23,13 @@ const currentLocale = Astro.currentLocale || "en";
           : "We work with you to turn your ideas into innovative solutions, using cutting-edge technology to develop scalable software products."
       }
     </p>
-    <span class="text-xl">Construyamos el futuro juntos. 🚀</span>
+    <span class="text-xl">
+      {
+        currentLocale === "es"
+          ? "Construyamos el futuro juntos. 🚀"
+          : "Let's build the future together. 🚀"
+      }
+    </span>
     <a
       href="/contact"
       class="btn btn-lg btn-primary font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
@@ -49,33 +55,21 @@ const currentLocale = Astro.currentLocale || "en";
   </div>
 
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-12 px-4 text-lg animate-fade-in"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-12 px-4 text-lg animate-fade-in"
   >
     <div
-      class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center bg-base-200"
+      class="p-6 rounded-xl text-center bg-gradient-to-r from-primary to-secondary"
     >
-      <h3 class="text-4xl font-bold mb-2">15+</h3>
-      <p class="text-base-content/70">
-        {
-          currentLocale === "es"
-            ? "Proyectos completados"
-            : "Completed projects"
-        }
-      </p>
-    </div>
-    <div
-      class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center bg-base-200"
-    >
-      <h3 class="text-4xl font-bold mb-2">10+</h3>
-      <p class="text-base-content/70">
+      <h3 class="text-4xl font-bold mb-2">5+</h3>
+      <p class="text-base-content/70 font-semibold">
         {currentLocale === "es" ? "Años de experiencia" : "Years of experience"}
       </p>
     </div>
     <div
-      class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center bg-base-200"
+      class="p-6 rounded-xl text-center bg-gradient-to-r from-primary to-secondary"
     >
       <h3 class="text-4xl font-bold mb-2">95%</h3>
-      <p class="text-base-content/70">
+      <p class="text-base-content/70 font-semibold">
         {
           currentLocale === "es"
             ? "Satisfacción del Cliente"
@@ -84,10 +78,10 @@ const currentLocale = Astro.currentLocale || "en";
       </p>
     </div>
     <div
-      class="p-6 rounded-xl hover:scale-105 transition-transform duration-300 text-center bg-base-200"
+      class="p-6 rounded-xl text-center bg-gradient-to-r from-primary to-secondary"
     >
       <h3 class="text-4xl font-bold mb-2">24x7</h3>
-      <p class="text-base-content/70">
+      <p class="text-base-content/70 font-semibold">
         {currentLocale === "es" ? "Soporte al cliente" : "Client support"}
       </p>
     </div>
