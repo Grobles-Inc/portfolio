@@ -11,11 +11,11 @@
   --color-base-200: oklch(95% 0.03 160);
   --color-base-300: oklch(92% 0.04 160);
   --color-base-content: oklch(15% 0.05 160);
-  --color-primary: oklch(85% 0.25 160);
-  --color-primary-content: oklch(15% 0.05 160);
-  --color-secondary: oklch(80% 0.15 170);
-  --color-secondary-content: oklch(15% 0.05 160);
-  --color-accent: oklch(85% 0.25 160);
+  --color-primary: oklch(92% 0.19 100); /* vibrant yellow */
+  --color-primary-content: oklch(18% 0.02 100);
+  --color-secondary: oklch(95% 0.18 120); /* lemon */
+  --color-secondary-content: oklch(18% 0.02 120);
+  --color-accent: oklch(90% 0.13 140); /* light mint accent */
   --color-accent-content: oklch(15% 0.05 160);
   --color-neutral: oklch(15% 0.05 160);
   --color-neutral-content: oklch(97.5% 0.02 160);
@@ -80,14 +80,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00ff99;
+  background: #ffe066;
   border-radius: 1rem;
   border: 1px solid transparent;
   transition: background 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00ff99;
+  background: #ffd600;
 }
 
 ::-webkit-scrollbar-track {
@@ -97,5 +97,5 @@ body {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: #00ff99 transparent;
+  scrollbar-color: #ffe066 transparent;
 }

@@ -3,38 +3,59 @@ import { Linkedin, Github } from "@lucide/astro";
 
 const teamMembers = [
   {
-    name: "Brayan Joan",
+    name: "Brayan Paucar",
     role: "Fundador - CEO",
-    description:
+    roleEn: "Founder - CEO",
+    image: "https://avatars.githubusercontent.com/u/66649036?v=4",
+    descriptionEs:
       "Brayan lidera nuestra agencia con una visión estratégica excepcional. Su experiencia en la toma de decisiones clave y su habilidad para identificar oportunidades han sido fundamentales para posicionar a la empresa como líder en el sector. Como CEO, guía al equipo hacia el logro de objetivos.",
+    descriptionEn:
+      "Brayan leads our agency with exceptional strategic vision. His experience in key decision-making and his ability to identify opportunities have been fundamental to positioning the company as a leader in the sector. As CEO, he guides the team towards achieving objectives.",
     linkedin: "#",
-    github: "#",
+    github: "https://github.com/kralion",
   },
   {
     name: "Jheison Huaynate",
     role: "Fundador - CEO",
-    description:
+    roleEn: "Founder - CEO",
+    image:
+      "https://img.icons8.com/?size=400&id=rGhKliUp2Vji&format=png&color=000000",
+    descriptionEs:
       "Jheison Huaynate es el cerebro detrás de nuestra agencia de éxito. Con una visión estratégica excepcional, su experiencia en la toma de decisiones clave y su habilidad para identificar oportunidades, ha sido fundamental para posicionar a la empresa como líder indiscutible en el sector.",
+    descriptionEn:
+      "Jheison Huaynate is the brain behind our successful agency. With exceptional strategic vision, his experience in key decision-making and his ability to identify opportunities have been fundamental to positioning the company as an indisputable leader in the sector.",
     linkedin: "#",
     github: "#",
   },
   {
-    name: "Miguel Angel",
+    name: "Miguel Requena",
     role: "Desarrollador de Software",
-    description:
+    roleEn: "Software Developer",
+    image:
+      "https://scontent.fayp1-1.fna.fbcdn.net/v/t39.30808-1/418864142_4398843287006652_4443117054819886401_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=1d2534&_nc_ohc=IlUw8g0UwckQ7kNvwH5rpJh&_nc_oc=Admyfhxm9-Narl_Cuu6t3BalR2PCNC9CR5jJsB0agfLz1ztxzLaKzBcXnky384w7Kx-4R2ei4CxOhqQ4ndSgfT_W&_nc_zt=24&_nc_ht=scontent.fayp1-1.fna&_nc_gid=pyBBnkRSaCNxnS-5ElfE_g&oh=00_AfV43YeeSY7KVM91gR6sLRRzAS8zzI7IQg2MDpL8NL4e8Q&oe=689C355C",
+    descriptionEs:
       "Miguel Ángel se especializa en diseñar y desarrollar soluciones tecnológicas eficientes y personalizadas. Su conocimiento en lenguajes de programación y arquitectura de software le permite crear aplicaciones innovadoras que optimizan procesos y mejoran la experiencia del usuario.",
+    descriptionEn:
+      "Miguel Angel specializes in designing and developing efficient and customized technological solutions. His knowledge of programming languages and software architecture allows him to create innovative applications that optimize processes and improve user experience.",
     linkedin: "https://pe.linkedin.com/in/miguelangelrequenaramos",
     github: "https://github.com/MiguelRequenaR",
   },
   {
-    name: "Luigi Christopher",
+    name: "Luigi Santana",
     role: "Diseñador UX/UI",
-    description:
+    roleEn: "UX/UI Designer",
+    image:
+      "https://img.icons8.com/?size=400&id=rGhKliUp2Vji&format=png&color=000000",
+    descriptionEs:
       "Luigi es experto en diseño de experiencias digitales centradas en el usuario. Su enfoque combina creatividad y análisis para diseñar interfaces intuitivas y atractivas que garantizan una interacción fluida. Es responsable de transformar la visión del cliente en diseños.",
+    descriptionEn:
+      "Luigi is an expert in designing digital experiences centered on the user. His focus combines creativity and analysis to design intuitive and attractive interfaces that ensure a fluid interaction. He is responsible for transforming the client's vision into designs.",
     linkedin: "#",
-    github: "#",
+    github: "https://github.com/Yuriine",
   },
 ];
+
+const currentLocale = Astro.currentLocale ?? "es";
 ---
 
 <section class="max-w-7xl mx-auto px-4">
@@ -42,14 +63,22 @@ const teamMembers = [
     class="flex flex-col items-center text-center space-y-6 py-12 mt-20"
     data-aos="fade-up"
   >
-    <span class="font-semibold">Nuestro Equipo</span>
+    <span class="font-semibold"
+      >{currentLocale === "es" ? "Nuestro Equipo" : "Our Team"}</span
+    >
     <h1 class="text-3xl max-w-3xl md:text-4xl lg:text-5xl font-bold">
-      Las Mentes Brillantes Que Impulsan Nuestro Éxito
+      {
+        currentLocale === "es"
+          ? "Las Mentes Brillantes Que Impulsan Nuestro Éxito"
+          : "The Brilliant Minds That Drive Our Success"
+      }
     </h1>
     <p class="max-w-2xl text-lg">
-      Somos más que un simple proveedor de servicios; Somos un equipo de
-      profesionales apasionados que están comprometidos a ayudarlo a desbloquear
-      todo el potencial de su marca.
+      {
+        currentLocale === "es"
+          ? "Somos más que un simple proveedor de servicios; Somos un equipo de profesionales apasionados que están comprometidos a ayudarlo a desbloquear todo el potencial de su marca."
+          : "We are more than just a simple service provider; We are a team of passionate professionals committed to helping you unlock all the potential of your brand."
+      }
     </p>
   </div>
 
@@ -65,14 +94,21 @@ const teamMembers = [
         >
           <div class="card-body p-8">
             <div class="text-center">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-32 h-32 rounded-full mx-auto mb-4"
+              />
               <h2 class="card-title text-2xl font-bold mb-2 justify-center">
                 {member.name}
               </h2>
-              <div class="badge bg-yellow-100 badge-lg text-black font-semibold mb-4">
-                {member.role}
+              <div class="badge badge-secondary badge-lg text-black font-semibold mb-4">
+                {currentLocale === "es" ? member.role : member.roleEn}
               </div>
               <p class="text-base-content/80 leading-relaxed mb-6">
-                {member.description}
+                {currentLocale === "es"
+                  ? member.descriptionEs
+                  : member.descriptionEn}
               </p>
               <div class="flex justify-center gap-4">
                 <a
